@@ -35,7 +35,10 @@
         <span ng-show="form.todoText.$error.minlength">Minimum length is 2</span>
         
         <input type="submit" value="Add Todo" ng-disabled="form.$invalid">
+
       </form>
+      <br>
+      <input type="button" value="Clear Complete" ng-click ="todoList.clearComplete()">
     </article>
   </section>
   

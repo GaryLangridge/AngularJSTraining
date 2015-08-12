@@ -28,4 +28,24 @@ describe('Test the todo controller', function() {
     expect(ctrl.uncompleted()).toBe(3);
     expect(ctrl.todoText).toBe('');
   });
+
+
+it('done items should be deleted when clear complete pressed', function() {
+ 
+  var text1 = "Todo not done";
+  var text2 = "Todo done"
+
+  ctrl.todoText = text1;
+  ctrl.addTodo();
+  ctrl .todoText = text2;
+  ctrl.addTodo();
+  ctrl.todos[ctrl.todos.length -1].done = true
+
+  ctrl.clearComplete();
+ 
+
+ expect(ctrl.uncompleted()).toBe(ctrl.todos.length);
+
+});
+
 });
