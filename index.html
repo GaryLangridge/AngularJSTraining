@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html ng-app="todoApp">
 <head>
   <meta charset="utf-8">
@@ -19,9 +19,13 @@
     <article ng-controller="TodoListController as todoList">
       <p>You have {{todoList.todos.length}} items in your todo list. 
         {{todoList.uncompleted()}} have not been completed.</p>
-      
+      <br>
+      <h3>filter:</h3>
+      <input type="text" name="filterTodo" ng-model="todoList.filterTodo">
+      <br>
+
       <ul data-ref="todoList">
-        <li  class="list-group-item" ng-repeat="todo in todoList.todos">
+        <li  class="list-group-item" ng-repeat="todo in todoList.todos|filters:{todo.text,filterTodo}">
           <input type="checkbox" ng-model="todo.done">
           <span class="done-{{todo.done}}">{{$index}} - {{todo.text}}</span>
         </li>
